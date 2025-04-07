@@ -832,7 +832,7 @@ body {
     transition: 0.3s;
 }
 
-.section-03 .img:hover {
+.section-03 .img:hover img {
     tranform: scale(120%)
 }
 
