@@ -819,7 +819,7 @@ body {
 .section-03 .img {
     width: 630px;
     height: 630px;
-    
+
     border-radius: 30px;
     overflow: hidden;
 }
@@ -833,7 +833,7 @@ body {
 }
 
 .section-03 .img:hover img {
-    tranform: scale(120%)
+    transform: scale(120%);
 }
 
 .section-03 .container .text {
