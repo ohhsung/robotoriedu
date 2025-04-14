@@ -6,11 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로보토리에듀</title>
 
+    <!-- AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
     <!-- 스와이퍼 슬라이드 -->
     <link rel="stylesheet" href="js/swiper-bundle.min.css">
     <script src="js/swiper-bundle.min.js"></script>
     <script>
         window.onload = () => {
+            AOS.init();
+
             var visualSwiper = new Swiper(".visualSwiper", {
                 effect: "fade", // 페이드 효과 적용
                 loop: true, // 무한 루프
@@ -26,7 +32,6 @@
                 fadeEffect: {
                     crossFade: true, // 부드러운 페이드 효과
                 },
-
                 pagination: {
                     el: ".swiper-bar",
                     type: "custom",
@@ -34,17 +39,17 @@
                         const pageTotal = (current / total) * 100;
                         const fillWidth = pageTotal;
                         return `
-                                <strong class="page">${current}</strong>
-                                <div class="process-bar">
-                                    <div class="fill" style="width: ${fillWidth}%;"></div>
-                                </div>
-                                <strong class="page-num">${total}</strong>`
+                    <strong class="page">${current}</strong>
+                    <div class="process-bar">
+                        <div class="fill" style="width: ${fillWidth}%;"></div>
+                    </div>
+                    <strong class="page-num">${total}</strong>`;
                     }
                 },
             });
 
             // 섹션 4 스크롤 스와이퍼
-            var swiper = new Swiper(".scrollSwiper", {
+            var scrollSwiper = new Swiper(".scrollSwiper", {
                 direction: "vertical",
                 slidesPerView: "auto",
                 freeMode: true,
@@ -55,7 +60,7 @@
             });
 
             // 섹션 5 그랩 스와이퍼
-            var swiper = new Swiper(".grabSwiper", {
+            var grabSwiper = new Swiper(".grabSwiper", {
                 slidesPerView: 4.2,
                 grabCursor: true,
                 navigation: {
@@ -64,22 +69,19 @@
                 },
             });
 
-            //비주얼 슬라이드 정지 재생 버튼 (stop(), start())
+            // 비주얼 슬라이드 정지 재생 버튼 (stop(), start())
             $('.stop-btn').on('click', function () {
                 visualSwiper.autoplay.stop();
-                $('.start-btn').css('diplay');
-                $(this).css('display', 'none');
-                $('.start-btn').show();
-
+                $('.start-btn').show();  // start 버튼을 보여주고
+                $(this).hide();           // stop 버튼을 숨깁니다.
             });
 
             $('.start-btn').on('click', function () {
                 visualSwiper.autoplay.start();
-                $(this).css('display', 'none');
-                $('.stop-btn').show();
+                $(this).hide();           // start 버튼을 숨기고
+                $('.stop-btn').show();    // stop 버튼을 보여줍니다.
             });
         };
-
     </script>
 
     <link rel="stylesheet" href="css/style.css">
@@ -150,7 +152,7 @@
     </header>
 
     <main class="main">
-        <section class="main-visual">
+        <section class="main-visual" data-aos="fade-up" data-aos-delay="300">
 
             <div class="swiper visualSwiper">
                 <div class="swiper-wrapper">
@@ -261,9 +263,10 @@
 
         <section class="section section-01">
             <div class="title">
-                <h3>EDU PROGRAMS</h3>
+                <h3 data-aos="fade-up">EDU PROGRAMS
+                </h3>
 
-                <p class="sub-text">
+                <p class="sub-text" data-aos="fade-up">
                     마음이 따뜻해지는 기술 교육, <br>
                     더 나은 미래와 세상으로의 발걸음 <br>
                     로보토리에듀와 체인지메이커로 도약 하세요.
@@ -273,7 +276,7 @@
             <!-- 첫번째 그리드 -->
 
             <div class="img-box">
-                <div class="big-img">
+                <div class="big-img" data-aos="fade-up" data-aos-delay="300">
                     <img src="img/img/info01_img.png" alt="">
 
                     <a href="#">
@@ -288,7 +291,7 @@
                 </div>
 
                 <div class="small-img">
-                    <div class="item finger">
+                    <div class="item finger" data-aos="fade-up" data-aos-delay="300">
                         <div class="text">
                             <p>어린이 · 청소년 교육</p>
                             <span class="sub">(유아/초/중/고)</span>
@@ -298,7 +301,7 @@
                         </div>
                     </div>
 
-                    <div class="item scale white">
+                    <div class="item scale white" data-aos="fade-up" data-aos-delay="500">
                         <div class="img">
                             <img src="img/img/info01_img02.png" alt="">
                         </div>
@@ -313,7 +316,7 @@
                         </a>
                     </div>
 
-                    <div class="item scale">
+                    <div class="item scale" data-aos="fade-up" data-aos-delay="500">
                         <div class="img">
                             <img src="img/img/info01_img03.png" alt="">
                         </div>
@@ -331,7 +334,7 @@
                         </a>
                     </div>
 
-                    <div class="item scale">
+                    <div class="item scale" data-aos="fade-up" data-aos-delay="300">
                         <div class="img">
                             <img src="img/img/info01_img04.png" alt="">
                         </div>
@@ -354,7 +357,7 @@
             <!-- 두번째 그리드 -->
 
             <div class="img-box reverse">
-                <div class="big-img">
+                <div class="big-img" data-aos="fade-up" data-aos-delay="500">
                     <img src="img/img/info02_img.png" alt="">
 
                     <a href="#">
@@ -368,7 +371,7 @@
                     </a>
                 </div>
 
-                <div class="small-img">
+                <div class="small-img" data-aos="fade-up" data-aos-delay="300">
                     <div class="item scale">
                         <div class="img">
                             <img src="img/img/info02_img01.png" alt="">
@@ -385,7 +388,7 @@
                         </a>
                     </div>
 
-                    <div class="item finger black">
+                    <div class="item finger black" data-aos="fade-up" data-aos-delay="500">
                         <div class="text">
                             <p>성인 교육</p>
                             <span class="sub">(성인/시니어)</span>
@@ -395,7 +398,7 @@
                         </div>
                     </div>
 
-                    <div class="item scale white">
+                    <div class="item scale white" data-aos="fade-up" data-aos-delay="300">
                         <div class="img">
                             <img src="img/img/info02_img02.png" alt="">
                         </div>
@@ -413,7 +416,7 @@
                         </a>
                     </div>
 
-                    <div class="item scale">
+                    <div class="item scale" data-aos="fade-up">
                         <div class="img">
                             <img src="img/img/info02_img03.png" alt="">
                         </div>
@@ -438,11 +441,12 @@
         <section class="section section-02">
             <div class="title">
                 <div class="top-btn">
-                    <h3>EDU PROGRAMS</h3>
-                    <a href="#" class="btn">더보기</a>
+                    <h3 data-aos="fade-up">EDU
+                        PROGRAMS</h3>
+                    <a href="#" class="btn" data-aos="fade-up">더보기</a>
                 </div>
 
-                <p class="sub-text">
+                <p class="sub-text" data-aos="fade-up">
                     원하시는 조건과 교육 현장의 여건에 따라 <br>
                     맞춤화 교육 설계 및 운영이 가능합니다.
                 </p>
@@ -450,18 +454,18 @@
 
             <div class="tab-container">
                 <ul class="tab">
-                    <li class="on" data-tab="tab1">수준과 목적에 따른 커리큘럼</li>
-                    <li data-tab="tab2">Short / Long 교육기간 및 시간</li>
-                    <li data-tab="tab3">방문 또는 집합형 교육형태</li>
-                    <li data-tab="tab4">교구, 교재, SW, Total 컨텐츠 제공</li>
+                    <li class="on" data-tab="tab1" data-aos="fade-up" data-aos-delay="300">수준과 목적에 따른 커리큘럼</li>
+                    <li data-tab="tab2" data-aos="fade-up" data-aos-delay="600">Short / Long 교육기간 및 시간</li>
+                    <li data-tab="tab3" data-aos="fade-up" data-aos-delay="900">방문 또는 집합형 교육형태</li>
+                    <li data-tab="tab4" data-aos="fade-up" data-aos-delay="1200">교구, 교재, SW, Total 컨텐츠 제공</li>
                 </ul>
                 <div class="tab-content-wrap">
                     <div id="tab1" class="tab-content active">
-                        <p>
+                        <p data-aos="fade-up" data-aos-delay="300">
                             #수준과 목적에 따른 <br>
                             커리큘럼
                         </p>
-                        <span>
+                        <span data-aos="fade-up" data-aos-delay="600">
                             유아부터 시니어까지 <br>
                             개별화가 가능한 커리큘럼으로 <br>
                             맞춤형 교육이 가능합니다.
@@ -509,17 +513,17 @@
             <div class="wrap">
                 <div class="title">
                     <div class="top-btn">
-                        <h3>교육 사례</h3>
-                        <a href="#" class="btn">더보기</a>
+                        <h3 data-aos="fade-up">교육 사례</h3>
+                        <a href="#" class="btn" data-aos="fade-up">더보기</a>
                     </div>
                 </div>
 
                 <div class="container">
-                    <div class="img">
+                    <div class="img" data-aos="fade-right" data-aos-delay="300">
                         <a href="#"><img src="img/img/20241210101945_exam.png" alt=""></a>
                     </div>
 
-                    <div class="text">
+                    <div class="text" data-aos="fade-left" data-aos-delay="300">
                         <p class="blue-box">어린이/청소년 교육</p>
                         <h3>
                             교육부 과학창의재단 <br>
@@ -547,14 +551,14 @@
         <section class="section section-04">
             <div class="wrap">
                 <div class="title">
-                    <div class="top-btn">
-                        <h3>로보토리 브랜치 소식</h3>
-                        <a href="#" class="btn">더보기</a>
+                    <div class="top-btn" data-aos="fade-up">
+                        <h3 data-aos="fade-up">로보토리 브랜치 소식</h3>
+                        <a href="#" class="btn" data-aos="fade-up">더보기</a>
                     </div>
                 </div>
 
                 <div class="box-wrap">
-                    <div class="box box1">
+                    <div class="box box1" data-aos="fade-up" data-aos-delay="300">
                         <div class="swiper scrollSwiper">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
@@ -599,7 +603,7 @@
                         </div>
                     </div><!-- box 1 -->
 
-                    <div class="box box2">
+                    <div class="box box2" data-aos="fade-up" data-aos-delay="600">
                         <a class="inner" href="#">
                             <h3 class="title">로보토리 브랜치를 모집합니다!</h3>
 
@@ -618,17 +622,17 @@
             <div class="wrap">
                 <div class="title">
                     <div class="top-btn">
-                        <h3>로보토리에듀 강사진</h3>
+                        <h3 data-aos="fade-up">로보토리에듀 강사진</h3>
                     </div>
 
-                    <p class="sub-text">
+                    <p class="sub-text" data-aos="fade-up">
                         로보토리와 함께 미래역량 함양 교육을 함께하고 있는 <br>
                         전문강사를 소개합니다.
                     </p>
                 </div>
             </div>
 
-            <div class="swiper grabSwiper">
+            <div class="swiper grabSwiper" data-aos="fade-left" data-aos-delay="400">
                 <div class="swiper-wrapper">
                     <div class="swiper-slide down first">
                         <div class="card">
@@ -817,12 +821,12 @@
             <div class="wrap">
                 <div class="title">
                     <div class="top-btn">
-                        <h3>로보토리 소식</h3>
-                        <a href="#" class="btn">더보기</a>
+                        <h3 data-aos="fade-up">로보토리 소식</h3>
+                        <a href="#" class="btn" data-aos="fade-up">더보기</a>
                     </div>
                 </div>
 
-                <div class="table">
+                <div class="table" data-aos="fade-up" data-aos-delay="300">
                     <ul class="item-wrap">
                         <li class="item">
                             <a href="#">
@@ -878,12 +882,12 @@
             </div><!-- wrap -->
         </section><!-- 6 -->
 
-        <section class="section section-07">
+        <section class="section section-07" data-aos="fade-up">
             <div class="inner">
-                <h3 class="title">교육신청 및 상담</h3>
+                <h3 class="title" data-aos="fade-up">교육신청 및 상담</h3>
 
                 <div class="wrap">
-                    <div class="text">
+                    <div class="text" data-aos="fade-up" data-aos-delay="300">
                         <p>
                             교육대상을 선택하시면 <br>
                             상세 프로그램별 신청 및 문의가 <br>
@@ -891,12 +895,12 @@
                         </p>
                     </div>
                     <div class="box-wrap">
-                        <div class="box1 box">
+                        <div class="box1 box" data-aos="fade-right" data-aos-delay="600">
                             <p>어린이 · 청소년</p>
                             <span>(유아/초/중/고)</span>
                             <a href="#">교육신청/상담</a>
                         </div>
-                        <div class="box2 box">
+                        <div class="box2 box" data-aos="fade-left" data-aos-delay="600">
                             <p>성인 · 시니어</p>
                             <span>(성인/시니어)</span>
                             <a href="#">교육신청/상담</a>
@@ -937,7 +941,8 @@
                         <ul class="related-sites">
                             <li><a href="https://www.lnsworld.co.kr/n2023/web/html/" target="_blank">라이프앤사이언스</a></li>
                             <li><a href="https://robotorimall.com/" target="_blank">로보토리 쇼핑몰</a></li>
-                            <li><a href="https://www.robotori.co.kr/v2/web/main/main.asp" target="_blank">로보토리 브랜드사이트</a></li>
+                            <li><a href="https://www.robotori.co.kr/v2/web/main/main.asp" target="_blank">로보토리
+                                    브랜드사이트</a></li>
                         </ul>
                         <a href="#n" class="scroll-to-top"><img src="img/icon/scroll_top.png" alt=""></a>
                     </div>
@@ -953,7 +958,7 @@
             </div>
         </div>
     </footer>
-    
+
 </body>
 
 </html>
