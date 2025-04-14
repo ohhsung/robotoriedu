@@ -1153,6 +1153,11 @@ body {
     font-weight: 400;
 }
 
+.section-05 .card-back .list-info li,
+.section-05 .card-back .profile p {
+    color: #fff;
+}
+
 .section-05 .card .list-info li::before {
     content: '';
     display: inline-block;
