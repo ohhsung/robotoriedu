@@ -1,2 +1,2 @@
-# roboto
-roboto 클론 페이지
+# robotoriedu
+robotoriedu 클론 페이지
